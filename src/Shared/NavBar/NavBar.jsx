@@ -9,10 +9,10 @@ const NavBar = () => {
                 <h1 className="text-4xl leading-none">BISTRO BOSS <br /><span className="text-xl tracking-[11px] mt-0">RESTAURANT</span></h1>
                 <div className="flex items-center">
                     <ul className="space-x-5 text-xl font-bold">
-                        <NavLink>HOME</NavLink>
-                        <NavLink>CONTACT US</NavLink>
+                        <NavLink to='/' >HOME</NavLink>
+                        <NavLink to='/contact'>CONTACT US</NavLink>
                         <NavLink>DASHBOARD</NavLink>
-                        <NavLink>OUR MENU</NavLink>
+                        <NavLink to='/ourmenu'>OUR MENU</NavLink>
                         <NavLink>OUR SHOP</NavLink>
                     </ul>
                     <div className="flex items-center gap-x-5 ml-5 space-x-5 text-xl font-bold">
