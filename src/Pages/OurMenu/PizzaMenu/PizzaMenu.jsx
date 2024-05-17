@@ -2,20 +2,18 @@ import SectionHeading from "../../../Component/SectionHeading/SectionHeading";
 import useMenu from "../../../Hooks/useMenu";
 import MenuCard from "../../HomePage/OurMenu/MenuCard/MenuCard";
 
-const TodayOffered = () => {
-
+const PizzaMenu = () => {
     const[menu] = useMenu()
-    const offered = menu.filter(item => item.category === 'offered')
-
-
+    const pizzaMenu = menu.filter(item => item.category === 'pizza')
+    
     return (
         <section className="container mx-auto mb-28">
             <div className='flex justify-center mt-20 mb-12'>
-                <SectionHeading title="TODAY'S OFFER" subTitle="Don't miss"></SectionHeading>
+                <SectionHeading title="PIZZA" subTitle="Don't miss"></SectionHeading>
             </div>
             <div className="grid grid-cols-2 gap-6">
                 {
-                    offered && offered.map(items => <MenuCard key={items._id} items={items}></MenuCard> )
+                   pizzaMenu &&pizzaMenu.map(items => <MenuCard key={items._id} items={items}></MenuCard> )
                 }
             </div>
             <div className="flex justify-center my-6">
@@ -25,4 +23,4 @@ const TodayOffered = () => {
     );
 };
 
-export default TodayOffered;
+export default PizzaMenu;
