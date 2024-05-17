@@ -23,7 +23,7 @@ const CategorySection = () => {
             </div>
       <Swiper
         slidesPerView={4}
-        spaceBetween={1}
+        // spaceBetween={}
         freeMode={true}
         pagination={{
           clickable: true,
@@ -32,24 +32,24 @@ const CategorySection = () => {
         className="mySwiper"
       >
         <SwiperSlide>
-            <img className='relative' src={img1}></img>
+            <img className='relative w-80' src={img1}></img>
             <h1 className='text-3xl absolute bottom-0 ml-20 text-white'>SALADS</h1>
         </SwiperSlide>
         <SwiperSlide>
-            <img className='relative' src={img2}></img>
+            <img className='relative w-80' src={img2}></img>
             <h1 className='text-3xl absolute bottom-0 ml-20 text-white'>PIZZAS</h1>
         </SwiperSlide>
         <SwiperSlide>
-            <img className='relative' src={img3}></img>
+            <img className='relative w-80' src={img3}></img>
             <h1 className='text-3xl absolute bottom-0 ml-20 text-white'>SOUPS</h1>
         </SwiperSlide>
         <SwiperSlide>
-            <img className='relative' src={img4}></img>
+            <img className='relative w-80' src={img4}></img>
             <h1 className='text-3xl absolute bottom-0 ml-20 text-white'>DESSERTS</h1>
         </SwiperSlide>
         <SwiperSlide>
-            <img className='relative' src={img5}></img>
-            <h1 className='text-3xl absolute bottom-0 ml-20 text-white'>SALADS</h1>
+            <img className='relative w-80' src={img5}></img>
+            <h1 className='text-3xl absolute bottom-0 w-80 text-center text-white'>SALADS</h1>
         </SwiperSlide>
       </Swiper>
     </section>

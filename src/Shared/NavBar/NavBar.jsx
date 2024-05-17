@@ -4,8 +4,8 @@ import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
     return (
-        <header className="text-white mx-auto container ">
-            <nav className="container mx-auto font-inter bg-[rgba(21,21,21,0.50)] py-2 fixed px-2 z-10 flex items-center justify-between ">
+        <header className="text-white mx-auto">
+            <nav className="w-full mx-auto font-inter px-5 bg-[rgba(21,21,21,0.50)] py-2 fixed z-10 flex items-center justify-between ">
                 <h1 className="text-4xl leading-none">BISTRO BOSS <br /><span className="text-xl tracking-[11px] mt-0">RESTAURANT</span></h1>
                 <div className="flex items-center">
                     <ul className="space-x-5 text-xl font-bold">
