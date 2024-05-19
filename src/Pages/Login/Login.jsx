@@ -2,16 +2,21 @@ import { useContext, useEffect, useState } from 'react';
 import bg from '../../assets/loginbg.png'
 import img from '../../assets/others/authentication1.png'
 import { loadCaptchaEnginge, LoadCanvasTemplate,  validateCaptcha } from 'react-simple-captcha';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaFacebookF, FaGithub, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../Context/ContextComponent';
 import { CgLaptop } from 'react-icons/cg';
+import toast from 'react-hot-toast';
 
 
 const Login = () => {
 
     const [disabledLogin,setDisableLogin] = useState(true)
     const {logIn,loginWithFaceBook,logInWithGitHub,logInWithGoogle} = useContext(AuthContext)
+    const navigate = useNavigate()
+    const location = useLocation()
+
+    const from = location.state?.from?.pathname || '/'
     
     const handleLogin = e => {
         e.preventDefault();
@@ -21,6 +26,8 @@ const Login = () => {
         logIn(email,password)
         .then(result => {
             console.log(result.user);    
+            toast.success('Login Successfully')
+            navigate(from,{replace:true})
         })
         .catch(error => {
             console.log(error.message);
@@ -31,6 +38,7 @@ const Login = () => {
         logInWithGoogle()
         .then(result => {
             console.log(result.user);
+            toast.success('Login Successfully')
         })
         .catch(error => {
             console.log(error.message);
@@ -43,6 +51,9 @@ const Login = () => {
         const userInputCaptch = e.target.value
         if(validateCaptcha(userInputCaptch)){
             setDisableLogin(false)
+        }
+        else{
+            setDisableLogin(true)
         }
     }
 
@@ -73,13 +84,13 @@ const Login = () => {
                         <input className='block px-4 rounded-lg border w-[535px] h-[52px]' type="password" name="password" id="password" placeholder='Type Here Password' />
                     </div>
                     <div className='w-[535px] mx-auto  mb-6'>
-                        <input onChange={handleOnChange} className='block px-4 rounded-lg border w-[535px] h-[52px]' type="text" name="" id="" placeholder='Type Here Captcha' />
+                        <input onBlur={handleOnChange} className='block px-4 rounded-lg border w-[535px] h-[52px]' type="text" name="" id="" placeholder='Type Here Captcha' />
                         <label className='block mt-3'>
                         <LoadCanvasTemplate />
                         </label>
                     </div>
                     <div className='w-[535px] mx-auto'>
-                        <input disabled={disabledLogin}  className={`text-2xl py-6 font-semibold rounded-lg ${disabledLogin ? 'bg-gray-400 cursor-not-allowed':'bg-[rgba(209,160,84,0.70)] cursor-pointer'} text-white w-full`} type="submit" value="Sign In" name="" id="" />
+                        <input disabled={disabledLogin} className={`text-2xl py-6 font-semibold rounded-lg ${disabledLogin ? 'bg-gray-400 cursor-not-allowed' : 'bg-[rgba(209,160,84,0.70)] cursor-pointer'}  text-white w-full`} type="submit" value="Sign In" name="" id="" />
                     </div>
                 </form>
                 <div className='text-center mt-3'>

@@ -24,7 +24,7 @@ const SignUp = () => {
         createUser(data.email,data.password)
         .then(result =>{
             console.log(result.user);
-            updateUser(data.name,null)
+            updateUser(data.name,data.photourl)
             .then(()=> {
                 console.log('updated');
             })
@@ -80,6 +80,11 @@ const SignUp = () => {
                         <label className='text-2xl font-semibold text-[#444] block mb-1' htmlFor='name'>Name</label>
                         <input className='block px-4 rounded-lg border mx-auto w-[535px] h-[52px]'  {...register("name",{ required: true })} type="text" name="name" id="name" placeholder='Type Here Name' />
                         {errors.name && <span className='text-red-600'>This field is required</span>} 
+                    </div>
+                    <div className='w-[535px] mx-auto mb-2'>
+                        <label className='text-2xl font-semibold text-[#444] block mb-1' htmlFor='photourl'>PhotoURL</label>
+                        <input className='block px-4 rounded-lg border mx-auto w-[535px] h-[52px]'  {...register("photourl",{ required: true })} type="url" name="photourl" id="photourl" placeholder='Type Here PhotoURL' />
+                        {errors.photourl && <span className='text-red-600'>This field is required</span>} 
                     </div>
                     <div className='w-[535px] mx-auto mb-2'>
                         <label className='text-2xl font-semibold text-[#444] block mb-1' htmlFor='email'>Email</label>
