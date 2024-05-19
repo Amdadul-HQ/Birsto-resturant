@@ -1,24 +1,43 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import bg from '../../assets/loginbg.png'
 import img from '../../assets/others/authentication1.png'
 import { loadCaptchaEnginge, LoadCanvasTemplate,  validateCaptcha } from 'react-simple-captcha';
 import { Link } from 'react-router-dom';
 import { FaFacebookF, FaGithub, FaGoogle } from 'react-icons/fa';
+import { AuthContext } from '../../Context/ContextComponent';
+import { CgLaptop } from 'react-icons/cg';
 
 
 const Login = () => {
 
     const [disabledLogin,setDisableLogin] = useState(true)
+    const {logIn,loginWithFaceBook,logInWithGitHub,logInWithGoogle} = useContext(AuthContext)
     
     const handleLogin = e => {
         e.preventDefault();
-        
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        
+        logIn(email,password)
+        .then(result => {
+            console.log(result.user);    
+        })
+        .catch(error => {
+            console.log(error.message);
+        })
 
     }
+    const handleGoogleLogin = () => {
+        logInWithGoogle()
+        .then(result => {
+            console.log(result.user);
+        })
+        .catch(error => {
+            console.log(error.message);
+        })
+    }
+
+
     const handleOnChange = e => {
         // console.log(e.target.value);
         const userInputCaptch = e.target.value
@@ -68,7 +87,7 @@ const Login = () => {
                     <p className='text-xl font-medium text-[#444]'>Or sign in with</p>
                     <div className='text-4xl flex justify-center gap-x-6 mt-3'>
                     <FaFacebookF className='p-2 cursor-pointer border border-black rounded-full' />
-                    <FaGoogle className='p-2 cursor-pointer border border-black rounded-full' />
+                    <FaGoogle onClick={handleGoogleLogin} className='p-2 cursor-pointer border border-black rounded-full' />
                     <FaGithub className='p-2 cursor-pointer border border-black rounded-full' />
                     </div>
                 </div>
