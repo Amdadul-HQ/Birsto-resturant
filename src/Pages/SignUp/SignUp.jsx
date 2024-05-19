@@ -6,6 +6,7 @@ import img from '../../assets/others/authentication1.png'
 import { useContext } from 'react';
 import { AuthContext } from '../../Context/ContextComponent';
 import { useForm } from 'react-hook-form';
+import toast  from 'react-hot-toast';
 
 const SignUp = () => {
 
@@ -27,6 +28,7 @@ const SignUp = () => {
             .then(()=> {
                 console.log('updated');
             })
+            toast.success('Sign Up Successfully!')
             logOut()
             navigate('/login')
         })
