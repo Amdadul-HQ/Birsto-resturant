@@ -3,6 +3,9 @@ import { FaCartShopping } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
+
+    
+
     return (
         <header className="text-white mx-auto">
             <nav className="w-full mx-auto font-inter px-5 bg-[rgba(21,21,21,0.50)] py-2 fixed z-10 flex items-center justify-between ">
@@ -13,11 +16,11 @@ const NavBar = () => {
                         <NavLink to='/contact'>CONTACT US</NavLink>
                         <NavLink>DASHBOARD</NavLink>
                         <NavLink to='/ourmenu'>OUR MENU</NavLink>
-                        <NavLink>OUR SHOP</NavLink>
+                        <NavLink to='/order/salad'>OUR SHOP</NavLink>
                     </ul>
                     <div className="flex items-center gap-x-5 ml-5 space-x-5 text-xl font-bold">
                         <NavLink><FaCartShopping /></NavLink>
-                        <NavLink className='flex items-center gap-x-2'>SIGN IN<FaUserCircle /></NavLink>
+                        <NavLink to='/login' className='flex items-center gap-x-2'>SIGN IN<FaUserCircle /></NavLink>
                     </div>
                 </div>
 
