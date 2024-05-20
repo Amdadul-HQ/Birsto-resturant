@@ -5,7 +5,6 @@ import { loadCaptchaEnginge, LoadCanvasTemplate,  validateCaptcha } from 'react-
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaFacebookF, FaGithub, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../Context/ContextComponent';
-import { CgLaptop } from 'react-icons/cg';
 import toast from 'react-hot-toast';
 
 
@@ -39,6 +38,7 @@ const Login = () => {
         .then(result => {
             console.log(result.user);
             toast.success('Login Successfully')
+            navigate(from,{replace:true})
         })
         .catch(error => {
             console.log(error.message);

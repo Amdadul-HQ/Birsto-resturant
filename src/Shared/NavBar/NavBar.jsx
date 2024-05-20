@@ -4,9 +4,11 @@ import { FaCartShopping } from "react-icons/fa6";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Context/ContextComponent";
 import toast from "react-hot-toast";
+import useCart from "../../Hooks/useCart";
 
 const NavBar = () => {
 
+    const[cart] = useCart()
     const {user,logOut} = useContext(AuthContext)
     const handleLogOut = () => {
         logOut()
@@ -31,7 +33,7 @@ const NavBar = () => {
                         <NavLink to='/order/salad'>OUR SHOP</NavLink>
                     </ul>
                     <div className="flex items-center gap-x-5 ml-5 space-x-3 text-xl font-bold">
-                        <NavLink><FaCartShopping /></NavLink>
+                        <NavLink to='/dashboard/cart' className='flex items-center bg-green-600 p-2 rounded-full relative'><FaCartShopping /><span className="text-base font-semibold bg-blue-600 px-1 rounded-full ml-1">+{cart?.length}</span> </NavLink>
                         {
                             user ? <><button onClick={handleLogOut} className=''>Logout </button> <Link to='/profile'>
                                     <img className="w-10 h-10 rounded-full p-1 border" src={user.photoURL}></img>
