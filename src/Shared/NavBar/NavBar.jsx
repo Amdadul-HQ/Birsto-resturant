@@ -36,7 +36,7 @@ const NavBar = () => {
                         <NavLink to='/dashboard/cart' className='flex items-center bg-green-600 p-2 rounded-full relative'><FaCartShopping /><span className="text-base font-semibold bg-blue-600 px-1 rounded-full ml-1">+{cart?.length}</span> </NavLink>
                         {
                             user ? <><button onClick={handleLogOut} className=''>Logout </button> <Link to='/profile'>
-                                    <img className="w-10 h-10 rounded-full p-1 border" src={user.photoURL}></img>
+                                    <img className="w-10 h-10 rounded-full p-1 border" src={user?.photoURL}></img>
                                 </Link></> : <NavLink to='/login' className='flex items-center gap-x-2'>SIGN IN<FaUserCircle /></NavLink>
                         }
                     </div>

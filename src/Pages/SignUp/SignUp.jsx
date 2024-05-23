@@ -1,17 +1,24 @@
 
-import { FaFacebookF, FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import bg from '../../assets/loginbg.png'
 import img from '../../assets/others/authentication1.png'
 import { useContext } from 'react';
 import { AuthContext } from '../../Context/ContextComponent';
 import { useForm } from 'react-hook-form';
 import toast  from 'react-hot-toast';
+import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 
 const SignUp = () => {
 
-    const {createUser,updateUser,logOut} = useContext(AuthContext)
+    const {createUser,updateUser,logOut,logInWithGoogle} = useContext(AuthContext)
+    const location = useLocation()
+
+    const from = location.state?.from?.pathname || '/'
     const navigate = useNavigate()
+
+
+
+    
     const {
         register,
         handleSubmit,
@@ -113,12 +120,7 @@ const SignUp = () => {
                 </form>
                 <div className='text-center mt-3'>
                 <p className='text-[rgba(209,160,84,0.70)] text-xl font-medium'>Already registered?<Link to='/login'>Sign In Now</Link></p>
-                    <p className='text-xl font-medium text-[#444]'>Or sign in with</p>
-                    <div className='text-4xl flex justify-center gap-x-6 mt-3'>
-                    <FaFacebookF className='p-2 cursor-pointer border border-black rounded-full' />
-                    <FaGoogle className='p-2 cursor-pointer border border-black rounded-full' />
-                    <FaGithub className='p-2 cursor-pointer border border-black rounded-full' />
-                    </div>
+                    <SocialLogin />
                 </div>
             </div>
             </div>
