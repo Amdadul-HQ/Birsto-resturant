@@ -6,9 +6,10 @@ import { HiCreditCard } from "react-icons/hi";
 import { IoMenu } from "react-icons/io5";
 import { MdEditCalendar, MdEmail } from "react-icons/md";
 import { NavLink } from "react-router-dom";
+import useAdmin from "../../Hooks/useAdmin";
 
 const DashBoardMenu = () => {
-    const isAdmin = true
+    const [isAdmin] = useAdmin()
     return (
         <div className="text-[#151515] px-6 my-5">
             <div className="w-fit">
