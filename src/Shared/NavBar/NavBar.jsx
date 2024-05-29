@@ -28,7 +28,7 @@ const NavBar = () => {
                     <ul className="space-x-5 text-xl font-bold">
                         <NavLink to='/' >HOME</NavLink>
                         <NavLink to='/contact'>CONTACT US</NavLink>
-                        <NavLink to='/dashboard'>DASHBOARD</NavLink>
+                        {user && <NavLink to='/dashboard'>DASHBOARD</NavLink>}
                         <NavLink to='/ourmenu'>OUR MENU</NavLink>
                         <NavLink to='/order/salad'>OUR SHOP</NavLink>
                     </ul>
