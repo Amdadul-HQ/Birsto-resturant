@@ -7,7 +7,7 @@ form {
     color: #6b7c93;
     font-weight: 300;
     letter-spacing: 0.025em;
-    margin-top: 16px;
+    /* margin-top: 16px; */
     display: block;
   }
   
@@ -34,7 +34,7 @@ form {
     width: 500px;
   }
   
-  button:hover {
+  .paymentBtn:hover {
     color: #fff;
     cursor: pointer;
     background-color: #7795f8;
@@ -42,11 +42,11 @@ form {
     box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
   }
   
-  button[disabled] {
+  .paymentBtn[disabled] {
     opacity: 0.6;
   }
   
-  input,
+  .paymentBtn,
   select {
     display: block;
     border: none;
@@ -63,7 +63,7 @@ form {
     width: 500px;
   }
   
-  input::placeholder {
+  .paymentBtn::placeholder {
     color: #aab7c4;
   }
   

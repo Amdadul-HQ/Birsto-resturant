@@ -56,14 +56,14 @@ const Login = () => {
             backgroundSize:'cover',
             backgroundPosition:'center',
         }} className='h-screen flex justify-center items-center font-inter'>
-            <div className='w-11/12 h-4/5 shadow-2xl gap-x-6 flex justify-center items-center'>
+            <div className='w-11/12  shadow-2xl gap-x-6 flex justify-center items-center'>
             <div className='w-1/2 flex justify-end'>
                 <img className='w-[650px] bg-transparent' src={img} alt="" />
             </div>
             <div className='w-1/2'>
                 <form className='w-full ' onSubmit={handleLogin}>
                     <h1 className='text-4xl text-[#151515] font-bold text-center'>Login</h1>
-                    <div className='w-[535px] mx-auto mb-6'>
+                    <div className='w-[535px] mx-auto '>
                         <label className='text-2xl font-semibold text-[#444] block mb-1' htmlFor='email'>Email</label>
                         <input className='block px-4 rounded-lg border mx-auto w-[535px] h-[52px]' type="email" name="email" id="email" placeholder='Type Here Email' />
                     </div>
@@ -81,7 +81,7 @@ const Login = () => {
                         <input disabled={disabledLogin} className={`text-2xl py-6 font-semibold rounded-lg ${disabledLogin ? 'bg-gray-400 cursor-not-allowed' : 'bg-[rgba(209,160,84,0.70)] cursor-pointer'}  text-white w-full`} type="submit" value="Sign In" name="" id="" />
                     </div>
                 </form>
-                <div className='text-center mt-3'>
+                <div className='text-center -mt-16 pb-10'>
                 <p className='text-[rgba(209,160,84,0.70)] text-xl font-medium'>New here? <Link to='/signup'>Create a New Account</Link></p>
                     <SocialLogin/>
                 </div>
